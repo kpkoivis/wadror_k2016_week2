@@ -1,0 +1,620 @@
+kris@karma:~$ cd rails/
+kris@karma:~/rails$ ls
+ratebeer  wadror_k2016_week2
+kris@karma:~/rails$ 
+kris@karma:~/rails$ 
+kris@karma:~/rails$ 
+kris@karma:~/rails$ 
+kris@karma:~/rails$ cd wadror_k2016_week2/
+kris@karma:~/rails/wadror_k2016_week2$ 
+kris@karma:~/rails/wadror_k2016_week2$ 
+kris@karma:~/rails/wadror_k2016_week2$ rails g model Rating score:integer beer_id:integer
+Running via Spring preloader in process 4344
+      invoke  active_record
+      create    db/migrate/20160128195417_create_ratings.rb
+      create    app/models/rating.rb
+      invoke    test_unit
+      create      test/models/rating_test.rb
+      create      test/fixtures/ratings.yml
+kris@karma:~/rails/wadror_k2016_week2$ rake db:migrate
+== 20160128195417 CreateRatings: migrating ====================================
+-- create_table(:ratings)
+   -> 0.0008s
+== 20160128195417 CreateRatings: migrated (0.0008s) ===========================
+
+kris@karma:~/rails/wadror_k2016_week2$ rails c
+Running via Spring preloader in process 4475
+Loading development environment (Rails 4.2.5)
+irb(main):001:0> 
+irb(main):002:0* 
+irb(main):003:0* b = Beer.first
+  Beer Load (0.2ms)  SELECT  "beers".* FROM "beers"  ORDER BY "beers"."id" ASC LIMIT 1
+=> nil
+irb(main):004:0> b.ratings.create score:10
+NoMethodError: undefined method `ratings' for nil:NilClass
+        from (irb):4
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:110:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:9:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:68:in `console'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'                  
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `block in require'         
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'          
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'                  
+        from /home/kris/rails/wadror_k2016_week2/bin/rails:9:in `<top (required)>'                                                                              
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'                     
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `block in load'            
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'          
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'                     
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/commands/rails.rb:6:in `call'                                    
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/command_wrapper.rb:38:in `call'                                  
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:185:in `block in serve'                           
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `fork'                                     
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `serve'                                    
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:131:in `block in run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `loop'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application/boot.rb:18:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from -e:1:in `<main>'irb(main):005:0> 
+irb(main):006:0* 
+irb(main):007:0* 
+irb(main):008:0* reload!
+Reloading...
+=> true
+irb(main):009:0> 
+irb(main):010:0* b.ratings.create score:10
+NoMethodError: undefined method `ratings' for nil:NilClass
+        from (irb):10
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:110:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:9:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:68:in `console'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `block in require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+        from /home/kris/rails/wadror_k2016_week2/bin/rails:9:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `block in load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/commands/rails.rb:6:in `call'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/command_wrapper.rb:38:in `call'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:185:in `block in serve'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `fork'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `serve'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:131:in `block in run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `loop'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application/boot.rb:18:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from -e:1:in `<main>'irb(main):011:0> 
+irb(main):012:0* b.ratings.create score:10
+NoMethodError: undefined method `ratings' for nil:NilClass
+        from (irb):12
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:110:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:9:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:68:in `console'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `block in require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+        from /home/kris/rails/wadror_k2016_week2/bin/rails:9:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `block in load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/commands/rails.rb:6:in `call'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/command_wrapper.rb:38:in `call'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:185:in `block in serve'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `fork'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `serve'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:131:in `block in run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `loop'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application/boot.rb:18:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from -e:1:in `<main>'irb(main):013:0> 
+irb(main):014:0* 
+irb(main):015:0* 
+irb(main):016:0* 
+irb(main):017:0* 
+irb(main):018:0* b = Beer.first           
+  Beer Load (0.2ms)  SELECT  "beers".* FROM "beers"  ORDER BY "beers"."id" ASC LIMIT 1
+=> nil
+irb(main):019:0> 
+irb(main):020:0* 
+irb(main):021:0* ^C
+irb(main):021:0> 
+irb(main):022:0* 
+irb(main):023:0* rake db:seed
+NameError: undefined local variable or method `seed' for main:Object
+Did you mean?  send
+        from (irb):23
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:110:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:9:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:68:in `console'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `block in require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+        from /home/kris/rails/wadror_k2016_week2/bin/rails:9:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `block in load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/commands/rails.rb:6:in `call'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/command_wrapper.rb:38:in `call'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:185:in `block in serve'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `fork'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `serve'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:131:in `block in run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `loop'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application/boot.rb:18:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from -e:1:in `<main>'irb(main):024:0> 
+irb(main):025:0* 
+irb(main):026:0* ^C
+irb(main):026:0> 
+irb(main):027:0* 
+irb(main):028:0* quit
+kris@karma:~/rails/wadror_k2016_week2$ 
+kris@karma:~/rails/wadror_k2016_week2$ 
+kris@karma:~/rails/wadror_k2016_week2$ 
+kris@karma:~/rails/wadror_k2016_week2$ 
+kris@karma:~/rails/wadror_k2016_week2$ rake db:seed
+kris@karma:~/rails/wadror_k2016_week2$ 
+kris@karma:~/rails/wadror_k2016_week2$ 
+kris@karma:~/rails/wadror_k2016_week2$ rails c     
+Running via Spring preloader in process 4589
+Loading development environment (Rails 4.2.5)
+irb(main):001:0> b = Beer.first
+  Beer Load (0.2ms)  SELECT  "beers".* FROM "beers"  ORDER BY "beers"."id" ASC LIMIT 1
+=> #<Beer id: 1, name: "Iso 3", style: "Lager", brewery_id: 1, created_at: "2016-01-28 20:03:26", updated_at: "2016-01-28 20:03:26">
+irb(main):002:0> b.ratings.create score:10
+   (0.2ms)  begin transaction
+  SQL (0.5ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 10], ["beer_id", 1], ["created_at", "2016-01-28 20:04:04.403731"], ["updated_at", "2016-01-28 20:04:04.403731"]]
+   (9.6ms)  commit transaction
+=> #<Rating id: 1, score: 10, beer_id: 1, created_at: "2016-01-28 20:04:04", updated_at: "2016-01-28 20:04:04">
+irb(main):003:0> 
+irb(main):004:0* 
+irb(main):005:0* b.ratings.create score:21
+   (0.1ms)  begin transaction
+  SQL (0.3ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 21], ["beer_id", 1], ["created_at", "2016-01-28 20:04:08.608094"], ["updated_at", "2016-01-28 20:04:08.608094"]]
+   (9.8ms)  commit transaction
+=> #<Rating id: 2, score: 21, beer_id: 1, created_at: "2016-01-28 20:04:08", updated_at: "2016-01-28 20:04:08">
+irb(main):006:0> b.ratings.create score:17
+   (0.1ms)  begin transaction
+  SQL (0.3ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 17], ["beer_id", 1], ["created_at", "2016-01-28 20:04:11.304080"], ["updated_at", "2016-01-28 20:04:11.304080"]]
+   (9.8ms)  commit transaction
+=> #<Rating id: 3, score: 17, beer_id: 1, created_at: "2016-01-28 20:04:11", updated_at: "2016-01-28 20:04:11">
+irb(main):007:0> Brewery.new name:"Brew Dog", year:2007
+=> #<Brewery id: nil, name: "Brew Dog", year: 2007, created_at: nil, updated_at: nil>
+irb(main):008:0> b = Breweries.find_by name:"Brew Dog" 
+NameError: uninitialized constant Breweries
+        from (irb):8
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:110:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:9:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:68:in `console'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+        from /home/kris/rails/wadror_k2016_week2/bin/rails:9:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from -e:1:in `<main>'
+irb(main):009:0> 
+irb(main):010:0* b = breweries.find_by name:"Brew Dog" 
+NameError: undefined local variable or method `breweries' for main:Object
+        from (irb):10
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:110:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:9:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:68:in `console'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `block in require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+        from /home/kris/rails/wadror_k2016_week2/bin/rails:9:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `block in load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/commands/rails.rb:6:in `call'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/command_wrapper.rb:38:in `call'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:185:in `block in serve'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `fork'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `serve'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:131:in `block in run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `loop'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application/boot.rb:18:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from -e:1:in `<main>'irb(main):011:0> 
+irb(main):012:0* 
+irb(main):013:0* 
+irb(main):014:0* b = Brewery.find_by name:"Brew Dog"    
+  Brewery Load (0.3ms)  SELECT  "breweries".* FROM "breweries" WHERE "breweries"."name" = ? LIMIT 1  [["name", "Brew Dog"]]
+=> nil
+irb(main):015:0> brewery
+NameError: undefined local variable or method `brewery' for main:Object
+        from (irb):15
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:110:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:9:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:68:in `console'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `block in require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+        from /home/kris/rails/wadror_k2016_week2/bin/rails:9:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `block in load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/commands/rails.rb:6:in `call'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/command_wrapper.rb:38:in `call'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:185:in `block in serve'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `fork'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `serve'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:131:in `block in run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `loop'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application/boot.rb:18:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from -e:1:in `<main>'irb(main):016:0> 
+irb(main):017:0* Brewery
+=> Brewery(id: integer, name: string, year: integer, created_at: datetime, updated_at: datetime)
+irb(main):018:0> Breweries
+NameError: uninitialized constant Breweries
+        from (irb):18
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:110:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:9:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:68:in `console'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+        from /home/kris/rails/wadror_k2016_week2/bin/rails:9:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from -e:1:in `<main>'
+irb(main):019:0> 
+irb(main):020:0* 
+irb(main):021:0* b = Brewery.first
+  Brewery Load (0.3ms)  SELECT  "breweries".* FROM "breweries"  ORDER BY "breweries"."id" ASC LIMIT 1
+=> #<Brewery id: 1, name: "Koff", year: 1897, created_at: "2016-01-28 20:03:26", updated_at: "2016-01-28 20:03:26">
+irb(main):022:0> b = Brewery.second
+  Brewery Load (0.3ms)  SELECT  "breweries".* FROM "breweries"  ORDER BY "breweries"."id" ASC LIMIT 1 OFFSET 1
+=> #<Brewery id: 2, name: "Malmgard", year: 2001, created_at: "2016-01-28 20:03:26", updated_at: "2016-01-28 20:03:26">
+irb(main):023:0> b = Brewery.third
+  Brewery Load (0.3ms)  SELECT  "breweries".* FROM "breweries"  ORDER BY "breweries"."id" ASC LIMIT 1 OFFSET 2
+=> #<Brewery id: 3, name: "Weihenstephaner", year: 1042, created_at: "2016-01-28 20:03:26", updated_at: "2016-01-28 20:03:26">
+irb(main):024:0> b = Brewery.fourth
+  Brewery Load (0.3ms)  SELECT  "breweries".* FROM "breweries"  ORDER BY "breweries"."id" ASC LIMIT 1 OFFSET 3
+=> nil
+irb(main):025:0> b = Brewery.create name:"Brew Dog", year:2007       
+   (0.2ms)  begin transaction
+  SQL (0.4ms)  INSERT INTO "breweries" ("name", "year", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Brew Dog"], ["year", 2007], ["created_at", "2016-01-28 20:14:47.031431"], ["updated_at", "2016-01-28 20:14:47.031431"]]
+   (10.0ms)  commit transaction
+=> #<Brewery id: 4, name: "Brew Dog", year: 2007, created_at: "2016-01-28 20:14:47", updated_at: "2016-01-28 20:14:47">
+irb(main):026:0> b.beers.create name:"Punk IPA", style:"IPA"
+   (0.1ms)  begin transaction
+  SQL (0.4ms)  INSERT INTO "beers" ("name", "style", "brewery_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Punk IPA"], ["style", "IPA"], ["brewery_id", 4], ["created_at", "2016-01-28 20:15:48.026192"], ["updated_at", "2016-01-28 20:15:48.026192"]]
+   (10.2ms)  commit transaction
+=> #<Beer id: 8, name: "Punk IPA", style: "IPA", brewery_id: 4, created_at: "2016-01-28 20:15:48", updated_at: "2016-01-28 20:15:48">
+irb(main):027:0> beer1 = b.beers.create name:"Nanny State", style:"lowalcohol" 
+   (0.1ms)  begin transaction
+  SQL (0.3ms)  INSERT INTO "beers" ("name", "style", "brewery_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Nanny State"], ["style", "lowalcohol"], ["brewery_id", 4], ["created_at", "2016-01-28 20:16:23.393632"], ["updated_at", "2016-01-28 20:16:23.393632"]]
+   (9.6ms)  commit transaction
+=> #<Beer id: 9, name: "Nanny State", style: "lowalcohol", brewery_id: 4, created_at: "2016-01-28 20:16:23", updated_at: "2016-01-28 20:16:23">
+irb(main):028:0> 
+irb(main):029:0* beer1.rating.create score:1
+NoMethodError: undefined method `rating' for #<Beer:0x007f9e268fc638>
+Did you mean?  ratings
+               ratings=
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activemodel-4.2.5/lib/active_model/attribute_methods.rb:433:in `method_missing'
+        from (irb):29
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:110:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:9:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:68:in `console'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `block in require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+        from /home/kris/rails/wadror_k2016_week2/bin/rails:9:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `block in load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/commands/rails.rb:6:in `call'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/command_wrapper.rb:38:in `call'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:185:in `block in serve'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `fork'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `serve'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:131:in `block in run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `loop'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application/boot.rb:18:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from -e:1:in `<main>'irb(main):030:0> 
+irb(main):031:0* 
+irb(main):032:0* 
+irb(main):033:0* beer1.ratings.create score:1
+   (0.2ms)  begin transaction
+  SQL (0.3ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 1], ["beer_id", 9], ["created_at", "2016-01-28 20:16:42.779641"], ["updated_at", "2016-01-28 20:16:42.779641"]]
+   (10.1ms)  commit transaction
+=> #<Rating id: 4, score: 1, beer_id: 9, created_at: "2016-01-28 20:16:42", updated_at: "2016-01-28 20:16:42">
+irb(main):034:0> beer1.ratings.create score:2
+   (0.1ms)  begin transaction
+  SQL (0.3ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 2], ["beer_id", 9], ["created_at", "2016-01-28 20:16:46.579493"], ["updated_at", "2016-01-28 20:16:46.579493"]]
+   (10.3ms)  commit transaction
+=> #<Rating id: 5, score: 2, beer_id: 9, created_at: "2016-01-28 20:16:46", updated_at: "2016-01-28 20:16:46">
+irb(main):035:0> 
+irb(main):036:0* 
+irb(main):037:0* beers
+NameError: undefined local variable or method `beers' for main:Object
+Did you mean?  beer1
+        from (irb):37
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:110:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:9:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:68:in `console'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `block in require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+        from /home/kris/rails/wadror_k2016_week2/bin/rails:9:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `block in load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/commands/rails.rb:6:in `call'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/command_wrapper.rb:38:in `call'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:185:in `block in serve'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `fork'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `serve'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:131:in `block in run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `loop'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application/boot.rb:18:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from -e:1:in `<main>'irb(main):038:0> 
+irb(main):039:0* 
+irb(main):040:0* 
+irb(main):041:0* 
+irb(main):042:0* Beers
+NameError: uninitialized constant Beers
+        from (irb):42
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:110:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:9:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:68:in `console'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+        from /home/kris/rails/wadror_k2016_week2/bin/rails:9:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from -e:1:in `<main>'
+irb(main):043:0> Beers.all
+NameError: uninitialized constant Beers
+        from (irb):43
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:110:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:9:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:68:in `console'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+        from /home/kris/rails/wadror_k2016_week2/bin/rails:9:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from -e:1:in `<main>'
+irb(main):044:0> Beers.find_all
+NameError: uninitialized constant Beers
+        from (irb):44
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:110:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:9:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:68:in `console'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+        from /home/kris/rails/wadror_k2016_week2/bin/rails:9:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from -e:1:in `<main>'
+irb(main):045:0> 
+irb(main):046:0* 
+irb(main):047:0* 
+irb(main):048:0* beers
+NameError: undefined local variable or method `beers' for main:Object
+Did you mean?  beer1
+        from (irb):48
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:110:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:9:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:68:in `console'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `block in require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+        from /home/kris/rails/wadror_k2016_week2/bin/rails:9:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `block in load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/commands/rails.rb:6:in `call'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/command_wrapper.rb:38:in `call'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:185:in `block in serve'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `fork'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `serve'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:131:in `block in run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `loop'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application/boot.rb:18:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from -e:1:in `<main>'irb(main):049:0> 
+irb(main):050:0* 
+irb(main):051:0* beers.list
+NameError: undefined local variable or method `beers' for main:Object
+Did you mean?  beer1
+        from (irb):51
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:110:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:9:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:68:in `console'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `block in require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+        from /home/kris/rails/wadror_k2016_week2/bin/rails:9:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `block in load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/commands/rails.rb:6:in `call'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/command_wrapper.rb:38:in `call'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:185:in `block in serve'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `fork'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `serve'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:131:in `block in run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `loop'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application/boot.rb:18:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from -e:1:in `<main>'irb(main):052:0> 
+irb(main):053:0* 
+irb(main):054:0* 
+irb(main):055:0* Beers.list
+NameError: uninitialized constant Beers
+        from (irb):55
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:110:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:9:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:68:in `console'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+        from /home/kris/rails/wadror_k2016_week2/bin/rails:9:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from -e:1:in `<main>'
+irb(main):056:0> 
+irb(main):057:0* Beer
+=> Beer(id: integer, name: string, style: string, brewery_id: integer, created_at: datetime, updated_at: datetime)
+irb(main):058:0> 
+irb(main):059:0* 
+irb(main):060:0* beers.find_by name:"Punk IPA"
+NameError: undefined local variable or method `beers' for main:Object
+Did you mean?  beer1
+        from (irb):60
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:110:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:9:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:68:in `console'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `block in require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+        from /home/kris/rails/wadror_k2016_week2/bin/rails:9:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `block in load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/commands/rails.rb:6:in `call'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/command_wrapper.rb:38:in `call'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:185:in `block in serve'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `fork'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `serve'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:131:in `block in run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `loop'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application/boot.rb:18:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from -e:1:in `<main>'irb(main):061:0> 
+irb(main):062:0* 
+irb(main):063:0* 
+irb(main):064:0* Beers.find_by name:"Punk IPA" 
+NameError: uninitialized constant Beers
+        from (irb):64
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:110:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:9:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:68:in `console'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+        from /home/kris/rails/wadror_k2016_week2/bin/rails:9:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from -e:1:in `<main>'
+irb(main):065:0> 
+irb(main):066:0* Beer.find_by name:"Punk IPA"
+  Beer Load (0.4ms)  SELECT  "beers".* FROM "beers" WHERE "beers"."name" = ? LIMIT 1  [["name", "Punk IPA"]]
+=> #<Beer id: 8, name: "Punk IPA", style: "IPA", brewery_id: 4, created_at: "2016-01-28 20:15:48", updated_at: "2016-01-28 20:15:48">
+irb(main):067:0> 
+irb(main):068:0* ipa = Beer.find_by name:"Punk IPA"
+  Beer Load (0.3ms)  SELECT  "beers".* FROM "beers" WHERE "beers"."name" = ? LIMIT 1  [["name", "Punk IPA"]]
+=> #<Beer id: 8, name: "Punk IPA", style: "IPA", brewery_id: 4, created_at: "2016-01-28 20:15:48", updated_at: "2016-01-28 20:15:48">
+irb(main):069:0> ipa.rating.create score:45
+NoMethodError: undefined method `rating' for #<Beer:0x007f9e2654e388>
+Did you mean?  ratings
+               ratings=
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activemodel-4.2.5/lib/active_model/attribute_methods.rb:433:in `method_missing'
+        from (irb):69
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:110:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/console.rb:9:in `start'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:68:in `console'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `block in require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:274:in `require'
+        from /home/kris/rails/wadror_k2016_week2/bin/rails:9:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `block in load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:240:in `load_dependency'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/activesupport-4.2.5/lib/active_support/dependencies.rb:268:in `load'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/commands/rails.rb:6:in `call'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/command_wrapper.rb:38:in `call'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:185:in `block in serve'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `fork'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:156:in `serve'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:131:in `block in run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `loop'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application.rb:125:in `run'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/spring-1.6.2/lib/spring/application/boot.rb:18:in `<top (required)>'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from /home/kris/.rbenv/versions/2.3.0/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+        from -e:1:in `<main>'irb(main):070:0> 
+irb(main):071:0* 
+irb(main):072:0* 
+irb(main):073:0* ipa.ratings.create score:45
+   (0.1ms)  begin transaction
+  SQL (0.3ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 45], ["beer_id", 8], ["created_at", "2016-01-28 20:21:18.638916"], ["updated_at", "2016-01-28 20:21:18.638916"]]
+   (9.8ms)  commit transaction
+=> #<Rating id: 6, score: 45, beer_id: 8, created_at: "2016-01-28 20:21:18", updated_at: "2016-01-28 20:21:18">
+irb(main):074:0> ipa.ratings.create score:22
+   (0.1ms)  begin transaction
+  SQL (0.3ms)  INSERT INTO "ratings" ("score", "beer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["score", 22], ["beer_id", 8], ["created_at", "2016-01-28 20:21:21.622642"], ["updated_at", "2016-01-28 20:21:21.622642"]]
+   (10.4ms)  commit transaction
+=> #<Rating id: 7, score: 22, beer_id: 8, created_at: "2016-01-28 20:21:21", updated_at: "2016-01-28 20:21:21">
+irb(main):075:0> 
+                                                                                                                                                                

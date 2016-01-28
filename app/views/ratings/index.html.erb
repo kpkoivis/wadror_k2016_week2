@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>List of ratings</h1>
+<p> Number of ratings: <%= @ratings.count %> </p>
+
+<ul>
+  <% @ratings.each do |rating| %>
+      <li> <%= rating.to_s %> </li>
+  <% end %>
+</ul>
+
+
+
+
+<table>
+  <thead>
+  <tr>
+    <th>Beer name</th>
+    <th>Score</th>
+    <th colspan="5"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @ratings.each do |rating| %>
+      <tr>
+        <td><%= rating.beer.name %></td>
+        <td><%= rating.score %> </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rating', new_rating_path %>
