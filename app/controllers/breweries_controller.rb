@@ -78,7 +78,7 @@ class BreweriesController < ApplicationController
 
     authenticate_or_request_with_http_basic do |username, password |
       result = false
-      admin_accounts.each .each do |key, value|
+      admin_accounts.each do |key, value|
         if username == key and password == value
           result = true
         end

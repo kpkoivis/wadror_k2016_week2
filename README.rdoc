@@ -1,2 +1,3 @@
-The app on heroku: https://peaceful-spire-95818.herokuapp.com/breweries
-
+The app on heroku:
+week1: https://peaceful-spire-95818.herokuapp.com/breweries
+week2: https://immense-everglades-19802.herokuapp.com/
